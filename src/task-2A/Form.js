@@ -42,7 +42,8 @@ function Form() {
         <div className="card mt-5">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
-              <div className='row'><div className="col-6 mb-3">
+              <div className='row'>
+                <div className="col-md-6 mt-2">
                 <label for='firstName' className="form-label">First Name</label>
                 <input
                   type="text"
@@ -52,54 +53,60 @@ function Form() {
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
-              <div className="col-6 mb-5">
-                <label for="lastName" className="form-label">Last Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id='lastName'
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </div></div>
-              
-              <div className="col-4 mb-3">
-                <select className="form-select" value={selectedOption} onChange={handleChange}>
+                <div className="col-md-6 mt-2">
+                  <label for="lastName" className="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id='lastName'
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </div>
+                </div>
+              <div className="row">
+                <div className='col-md-6 mt-2'>
+                  <h5>How should we contact you?</h5>
+                  <select className="form-select" value={selectedOption} onChange={handleChange}>
                   <option value="">Choose option</option>
                   <option value="number">Phone Number</option>
                   <option value="email">Email Address</option>
                 </select>
-                {selectedOption === 'number' && (
-                  <div className="mt-3">
-                    <label className="form-label">Phone Number</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                    />
-                  </div>
-                )}
-                {selectedOption === 'email' && (
-                  <div className="mt-3">
-                    <label className="form-label">Email Address</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                )}
-                {isFormComplete === false && (
-                  <p className="mt-3 text-danger">Please fill all details.</p>
-                )}
-                <button type="submit" className="btn btn-primary mt-3">Submit</button>
-              </div>
+                </div>
+                
+                  {selectedOption === 'number' && (
+                    <div className="col-md-6">
+                      <label className="form-label mt-2">Phone Number</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                      />
+                    </div>
+                  )}
+                  {selectedOption === 'email' && (
+                    <div className="col-md-6">
+                      <label className="form-label mt-2">Email Address</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                  {isFormComplete === false && (
+                    <p className="text-danger mt-2">Please fill all details.</p>
+                  )}
+                <button type="submit" className="btn btn-primary mt-1">Submit</button>
+          
             </form>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
